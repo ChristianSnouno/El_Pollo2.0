@@ -21,6 +21,11 @@ let walking_sound = new Audio('audio/running.mp3');
 
 
 // Functions to play the audio files
+
+function playBackgroundSound() {
+    hit_sound.play();
+}
+
 function playCoinSound() {
     coin_sound.play();
 }
@@ -31,10 +36,6 @@ function playJumpSound() {
 
 function playThrowSound() {
     throw_sound.play();
-}
-
-function playBackgroundSound() {
-    hit_sound.play();
 }
 
 function hitSound() {

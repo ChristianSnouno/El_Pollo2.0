@@ -24,6 +24,7 @@ class World {
   */
   constructor(canvas, keyboard) {
     this.level = createLevel1();
+    this.endBoss = new Endboss(this); 
     this.ctx = canvas.getContext('2d');
     this.canvas = canvas;
     this.keyboard = keyboard;
@@ -42,11 +43,22 @@ class World {
    * Runs the game loop, calling checkCollisions and checkThrowObjects at a certain interval.
    */
   run() {
+    playSound();
     setInterval(() => {
-      this.checkCollisions();
+      this.checkCollisions();   
+     }, 50);
+    setInterval(() => {
       this.checkCollisionsEndBoss();
       this.checkThrowObjects();
     }, 200);
+  }
+
+  checkCharacterPosition(endBossX, endBossDirection) {
+    if (this.character.x > endBossX && endBossDirection == 1) { // Wenn der Charakter hinter dem Endboss auf der rechten Seite steht
+      endGame('gameOver'); // Game over
+    } else if (this.character.x < endBossX && endBossDirection == -1) { // Wenn der Charakter hinter dem Endboss auf der linken Seite steht
+      endGame('gameOver'); // Game over
+    }
   }
 
   /**
@@ -124,10 +136,19 @@ class World {
 
   checkCollisionsEndBoss() {
     if (this.character.isColliding(this.endboss)) {
-        this.character.hit();
-        this.statusBar.setPercentage(this.character.energy);
+      this.character.hit();
+      this.statusBar.setPercentage(this.character.energy);
+  
+      // Calculate distance between character and back edge of endboss
+      const distance = this.endboss.x + this.endboss.width - this.character.x;
+      if (distance <= this.character.width && distance >= 0) {
+        this.endGame('gameOver');
+      }
+      else {
+        this.character.speed = 0;
+      }
     }
-}
+  }
 
 
   /**

@@ -168,7 +168,8 @@ class Character extends MovableObject {
     setInterval(() => {
       if (this.isDead()) {
         this.playAnimation(this.IMAGES_DEAD);
-        gameOver();
+        endGame('gameOver');
+        ;
       } else if (this.isHurt()) {
         this.playAnimation(this.IMAGES_HURT);
         hitSound();

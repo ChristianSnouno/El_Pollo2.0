@@ -77,7 +77,6 @@ class Endboss extends MovableObject {
         'img/4.Endboss/3/G23.png',
     ];
 
-
     // Constructor of the Endboss class
     constructor() {
         // Load the first image when the Endboss is walking
@@ -97,13 +96,13 @@ class Endboss extends MovableObject {
         this.isHit = false;
     }
 
-
     handleHit() {
         this.isHit = true; // Set isHit to true when the Endboss is hit
         this.speed = 10; // Set the speed to 10 when hit
     }
 
     // This function animates the Endboss
+    
     animate() {
         // Move the Endboss every 100 milliseconds depending on its movement direction
         setInterval(() => {
@@ -114,6 +113,8 @@ class Endboss extends MovableObject {
                 this.moveLeft();
             }
         }, 100);
+
+
 
         // Play the Endboss's image animation every 200 milliseconds
         setInterval(() => {
@@ -126,7 +127,7 @@ class Endboss extends MovableObject {
 
                 const soundTimeout = setTimeout(() => {
                     endbossDeadSoundPause();
-                    gameWin();
+                    endGame('gameWin');
                 }, 2000);
 
                 // If the character is revived, clear the timeout with the clearTimeout function

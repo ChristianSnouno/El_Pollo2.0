@@ -10,6 +10,8 @@ let canvas = document.querySelector('canvas');
 let world;
 let keyboard = new Keyboard();
 let intervals = [];
+var muteOn = false;
+
 /**
 
 Initializes the game by assigning the canvas element and creating the world with canvas element, keyboard control, and intervals.
@@ -39,57 +41,137 @@ function resizeCanvas() {
 
 Enters fullscreen mode.
 */
-function enterFullscreen() {
-  let fullscreen = document.getElementById('fullscreen');
-  openFullscreen(fullscreen);
-}
+
 /**
 
 Requests fullscreen mode for the specified element.
 @param {HTMLElement} elem - The element to request fullscreen mode.
 */
-function openFullscreen(elem) {
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.webkitRequestFullscreen) {
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) {
-    elem.msRequestFullscreen();
+function toggleFullscreen() {
+  var elem = document.getElementById("fullscreen");
+
+  if (!document.fullscreenElement) {
+    // Wenn der Vollbildmodus nicht aktiv ist, versuchen Sie, ihn zu aktivieren
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen();
+    }
+  } else {
+    // Wenn der Vollbildmodus aktiv ist, versuchen Sie, ihn zu beenden
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    }
   }
 }
+
+
 /**
 
 Starts the game by hiding the start screen, showing the canvas element, hiding the start button, initializing the game, and handling orientation change.
 */
+
 function startGame() {
   document.getElementById('startGame').classList.add('d-none');
   document.getElementById('canvas').classList.remove('d-none');
   document.getElementById('startGameButton').classList.add('d-none');
   init();
-
+  // Wenn der Mute-Modus aktiviert ist, deaktivieren Sie die Audioausgabe
+  if (muteOn) {
+    muteSound();
+  } else {
+    playSound();
+  }
 }
+
+function toggleMuteStatus() {
+  muteOn = !muteOn;
+  saveMuteStatus();
+  if (muteOn) {
+    muteSound();
+  } else {
+    playSound();
+  }
+}
+
+function saveMuteStatus() {
+  localStorage.setItem('muteOn', muteOn);
+}
+
+function loadMuteStatus() {
+  var savedMuteStatus = localStorage.getItem('muteOn');
+  if (savedMuteStatus !== null) {
+    muteOn = (savedMuteStatus === 'true');
+    if (muteOn) {
+      console.log('Der Mute-Modus ist aktiviert. Audioausgabe wird deaktiviert.');
+      muteSound();
+    } else {
+      console.log('Der Mute-Modus ist deaktiviert. Audioausgabe wird aktiviert.');
+      playSound();
+    }
+  } else {
+    // Wenn der Mute-Status nicht im Local Storage gefunden wird, setzen Sie ihn auf false
+    muteOn = false;
+    playSound();
+  }
+}
+
+function reloadPage() {
+  location.reload();
+}
+
+window.addEventListener('beforeunload', saveMuteStatus);
+
+window.onload = function() {
+  loadMuteStatus();
+};
+
+
+
 /**
 
-Shows the game over screen, hides the canvas element, and reloads the page after 2 seconds.
+Shows the win and gamescreen, hides the canvas element, and reloads the page after 2 seconds.
 */
-function gameOver() {
-  document.getElementById('gameOver').classList.remove('d-none');
-  document.getElementById('canvas').classList.add('d-none');
-  setTimeout(() => {
-    window.location.reload();
-  }, 2000);
-}
-/**
+let isEndGameShown = false;
 
-Shows the win screen, hides the canvas element, and reloads the page after 2 seconds.
-*/
-function gameWin() {
-  document.getElementById('gameWin').classList.remove('d-none');
+function endGame(message) {
+  const gameOverEl = document.getElementById('gameOver');
+  const gameWinEl = document.getElementById('gameWin');
+
+  if (message === 'gameOver') {
+    gameOverEl.classList.remove('d-none');
+    gameWinEl.classList.add('d-block');
+  } else if (message === 'gameWin') {
+    gameWinEl.classList.remove('d-none');
+    gameOverEl.classList.add('d-block');
+  }
+
   document.getElementById('canvas').classList.add('d-none');
-  setTimeout(() => {
-    window.location.reload();
-  }, 2000);
+
+  if (!isEndGameShown) {
+    isEndGameShown = true;
+    if (muteOn) {
+      muteSound();
+      setTimeout(() => {
+        location.reload()();
+      }, 1000);
+    } else {
+      setTimeout(() => {
+        playSound();
+        location.reload();
+      }, 1000);
+    }
+  }
 }
+
+
+
 /**
 
 Restarts the game by reloading the page and handling orientation change.
