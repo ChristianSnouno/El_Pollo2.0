@@ -1,16 +1,21 @@
-class ThrowableObject extends MovableObject {
+/**
+ * This class represents an object that can be thrown and animated.
+ * It extends the MovableObject class.
+ */
+ class ThrowableObject extends MovableObject {
+    /** The array of images for the bottle's rotation animation */
     IMAGE_ROTATION_BOTTLE = [
-        'img/6.botella/Rotación/Mesa de trabajo 1 copia 3.png',
-        'img/6.botella/Rotación/Mesa de trabajo 1 copia 4.png',
-        'img/6.botella/Rotación/Mesa de trabajo 1 copia 5.png',
-        'img/6.botella/Rotación/Mesa de trabajo 1 copia 6.png'
+        'img/6.botella/Bottle/1.png',
+        'img/6.botella/Bottle/2.png',
+        'img/6.botella/Bottle/3.png',
+        'img/6.botella/Bottle/4.png'
     ];
 
     /**
-     * Erstellt ein neues ThrowableObject.
+     * Creates a new ThrowableObject.
      * 
-     * @param {number} x - Die horizontale Position des Objekts.
-     * @param {number} y - Die vertikale Position des Objekts.
+     * @param {number} x - The horizontal position of the object.
+     * @param {number} y - The vertical position of the object.
      */
     constructor(x, y) {
         super().loadImage('img/7.Marcadores/Icono/Botella.png');
@@ -23,12 +28,11 @@ class ThrowableObject extends MovableObject {
     }
 
     /**
-     * Lässt das Objekt geworfen werden.
-     * Es wird eine Geschwindigkeit und die Schwerkraft angewendet.
-     * Das Objekt dreht sich und bewegt sich nach rechts.
+     * Makes the object be thrown.
+     * Applies a speed and gravity, makes the object rotate and move to the right.
      */
     throw() {
-        this.speedY = 35;
+        this.speedY = 20;
         this.applyGravity();
         setInterval(() => {
             this.x += 8;

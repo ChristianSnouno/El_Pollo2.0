@@ -1,6 +1,6 @@
 /**
- * Eine Klasse, die eine Energieanzeige für den Endgegner darstellt.
- * Erbt von der DrawableObject-Klasse.
+ * A class that represents an energy bar for the end boss.
+ * Inherits from the DrawableObject class.
  */
  class EndbossBar extends DrawableObject {
     percentage = 0;
@@ -14,37 +14,37 @@
     ];
 
     /**
-     * Konstruiert ein neues EndbossBar-Objekt.
-     * Initialisiert die Bilder, Position und Größe der Endgegneranzeige.
+     * Constructs a new EndbossBar object.
+     * Initializes the images, position, and size of the end boss bar.
      */
     constructor() {
-        // Aufruf des Konstruktors der DrawableObject-Klasse
+        // Call the constructor of the DrawableObject class
         super();
-        // Laden der Bilder für die Endgegneranzeige
+        // Load the images for the end boss bar
         this.loadImages(this.IMAGES);
-        // Setzen der Position und Größe der Endgegneranzeige
+        // Set the position and size of the end boss bar
         this.x = 300;
         this.y = 0;
         this.width = 140;
         this.height = 50;
-        // Setzen des Standard-Prozentsatzes auf 100
+        // Set the default percentage to 100
         this.setPercentage(100);
     }
 
     /**
-     * Setzt den Prozentsatz der Endgegneranzeige.
-     * @param {number} percentage - Der Prozentsatz der Endgegneranzeige (0-100)
+     * Sets the percentage of the end boss bar.
+     * @param {number} percentage - The percentage of the end boss bar (0-100)
      */
     setPercentage(percentage) {
         this.percentage = percentage;
-        // Laden des Bildes für den aktuellen Prozentsatz
+        // Load the image for the current percentage
         let path = this.IMAGES[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
 
     /**
-     * Ermittelt den Index des Bildes für den aktuellen Prozentsatz.
-     * @returns {number} - Der Index des Bildes für den aktuellen Prozentsatz
+     * Determines the index of the image for the current percentage.
+     * @returns {number} - The index of the image for the current percentage
      */
     resolveImageIndex() {
         if (this.percentage == 100) {
