@@ -5,6 +5,13 @@ class ThrowableObject extends MovableObject {
         'img/6.botella/Rotación/Mesa de trabajo 1 copia 5.png',
         'img/6.botella/Rotación/Mesa de trabajo 1 copia 6.png'
     ];
+
+    /**
+     * Erstellt ein neues ThrowableObject.
+     * 
+     * @param {number} x - Die horizontale Position des Objekts.
+     * @param {number} y - Die vertikale Position des Objekts.
+     */
     constructor(x, y) {
         super().loadImage('img/7.Marcadores/Icono/Botella.png');
         this.loadImages(this.IMAGE_ROTATION_BOTTLE);
@@ -15,11 +22,16 @@ class ThrowableObject extends MovableObject {
         this.throw();
     }
 
+    /**
+     * Lässt das Objekt geworfen werden.
+     * Es wird eine Geschwindigkeit und die Schwerkraft angewendet.
+     * Das Objekt dreht sich und bewegt sich nach rechts.
+     */
     throw() {
-        this.speedY = 30;
+        this.speedY = 35;
         this.applyGravity();
         setInterval(() => {
-            this.x += 10;
+            this.x += 8;
         }, 25);
 
         setInterval(() => {

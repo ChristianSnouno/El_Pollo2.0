@@ -1,0 +1,190 @@
+
+
+/* Smartphones ----------- */
+@media only screen and (max-width: 720px) {
+
+
+
+    canvas {
+        width: 100%;
+    }
+
+    #gameWin {
+        
+        width: 100%;
+    }
+
+    #gameOver {
+        
+        height: 100vh;
+    }
+
+    #startGame {
+        
+        width: 100%;
+    }
+
+    #instructions {
+        
+        width: 100%;
+    }
+}
+
+/* Smartphones ----------- */
+@media only screen and (max-height: 480px) {
+
+
+    canvas {
+        height: 100vh;
+    }
+
+    #gameWin {
+        
+        height: 100vh;
+    }
+
+    #gameOver {
+        
+        height: 100vh;
+    }
+
+    #startGame {
+        
+        height: 100vh;
+    }
+
+    #instructions {
+        
+        height: 100vh;
+    }
+
+
+
+}
+
+
+  @media only screen and (max-width: 768px) {
+    /* Hier kommen die CSS-Regeln für Geräte mit einer maximalen Bildschirmbreite von 768px */
+    .mobile-buttons {
+        display: block;
+      }
+      canvas {
+        height: 100vh;
+    }
+
+    #gameWin {
+        
+        height: 100vh;
+    }
+
+    #gameOver {
+        
+        height: 100vh;
+    }
+
+    #startGame {
+        
+        height: 100vh;
+    }
+
+    #instructions {
+        
+        height: 100vh;
+    }
+
+
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Hier kommen die CSS-Regeln für Geräte mit einer Bildschirmbreite zwischen 768px und 1024px */
+    .mobile-buttons {
+        display: block;
+      }
+      canvas {
+        height: 100vh;
+    }
+
+    #gameWin {
+        
+        height: 100vh;
+    }
+
+    #gameOver {
+        
+        height: 100vh;
+    }
+
+    #startGame {
+        
+        height: 100vh;
+    }
+
+    #instructions {
+        
+        height: 100vh;
+    }
+
+  }
+
+
+
+  @media only screen and (orientation: landscape) {
+    /* Hier kommen die CSS-Regeln für den Landscape-Modus */
+    .mobile-buttons {
+        display: block;
+      }
+      canvas {
+        height: 100vh;
+    }
+
+    #gameWin {
+        
+        height: 100vh;
+    }
+
+    #gameOver {
+        
+        height: 100vh;
+    }
+
+    #startGame {
+        
+        height: 100vh;
+    }
+
+    #instructions {
+        
+        height: 100vh;
+    }
+
+    }
+
+    @media only screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+    
+        .mobile-phone-warning {
+            display: flex;
+            width: auto;
+            height: auto;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 3);
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 25px;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            z-index: 101;
+            font-size: 32px;
+            color: rgb(148, 0, 0);
+            text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+            margin: 0px;
+        }
+        
+    }
+      
+
+    
+
+    
