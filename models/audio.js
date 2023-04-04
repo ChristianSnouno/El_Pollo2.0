@@ -1,14 +1,14 @@
 /**
 
 Loading of audio files
-@type {Audio} coin_sound - The sound effect for collecting coins
-@type {Audio} jump_sound - The sound effect for jumping
-@type {Audio} throw_sound - The sound effect for throwing bottles
-@type {Audio} background_sound - The background music for the game
-@type {Audio} hit_sound - The sound effect for hitting obstacles
-@type {Audio} endboss_sound - The sound effect for the end boss
-@type {Audio} endboss_dead - The sound effect for the end boss dying
-@type {Audio} walking_sound - The sound effect for walking/running
+@type {coin} coin_sound - The sound effect for collecting coins
+@type {jump} jump_sound - The sound effect for jumping
+@type {throw} throw_sound - The sound effect for throwing bottles
+@type {background_sound} background_sound - The background music for the game
+@type {hitSound} hit_sound - The sound effect for hitting obstacles
+@type {endboss_sound} endboss_sound - The sound effect for the end boss
+@type {endboss_dead} endboss_dead - The sound effect for the end boss dying
+@type {walking_sound} walking_sound - The sound effect for walking/running
 */
 let coin_sound = new Audio('audio/coin.wav');
 let jump_sound = new Audio('audio/jump.mp3');
@@ -89,7 +89,7 @@ function playSound() {
     background_sound.play();
     document.getElementById('muteAudioButton').classList.remove('d-none');
     document.getElementById('playAudioButton').classList.add('d-none');
-    
+
     // Play all the other audio files
     coin_sound.muted = false;
     jump_sound.muted = false;

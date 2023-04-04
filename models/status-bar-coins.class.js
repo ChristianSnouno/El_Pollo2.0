@@ -2,7 +2,7 @@
  * A class that represents a coin bar display.
  * Inherits from the DrawableObject class.
  */
- class CoinsBar extends DrawableObject {
+class CoinsBar extends DrawableObject {
     percentage = 100;
     IMAGES = [
         'img/7.Marcadores/Barra/Marcadormoneda/Verde/0.png',

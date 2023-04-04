@@ -2,7 +2,7 @@
  * This class represents an object that can be thrown and animated.
  * It extends the MovableObject class.
  */
- class ThrowableObject extends MovableObject {
+class ThrowableObject extends MovableObject {
     /** The array of images for the bottle's rotation animation */
     IMAGE_ROTATION_BOTTLE = [
         'img/6.botella/Bottle/1.png',

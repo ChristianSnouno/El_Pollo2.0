@@ -1,21 +1,21 @@
 class MovableObject extends DrawableObject {
- /**
-
-A movable object that extends DrawableObject.
-@class
-@name MovableObject
-@extends DrawableObject
-@memberof object
-@property {number} speed - The horizontal speed of the object.
-@property {boolean} otherDirection - Indicates if the object is moving in the opposite direction.
-@property {number} speedY - The vertical speed of the object.
-@property {number} acceleration - The acceleration of the object.
-@property {number} energy - The energy level of the object.
-@property {number} lastHit - The timestamp of the last hit on the object.
-@property {number} progessCoinBar - The progress level of the coin bar.
-@property {number} progessBottleBar - The progress level of the bottle bar.
-@property {boolean} chickendead - Indicates if the object is killed by a chicken.
-*/
+    /**
+   
+   A movable object that extends DrawableObject.
+   @class
+   @name MovableObject
+   @extends DrawableObject
+   @memberof object
+   @property {number} speed - The horizontal speed of the object.
+   @property {boolean} otherDirection - Indicates if the object is moving in the opposite direction.
+   @property {number} speedY - The vertical speed of the object.
+   @property {number} acceleration - The acceleration of the object.
+   @property {number} energy - The energy level of the object.
+   @property {number} lastHit - The timestamp of the last hit on the object.
+   @property {number} progessCoinBar - The progress level of the coin bar.
+   @property {number} progessBottleBar - The progress level of the bottle bar.
+   @property {boolean} chickendead - Indicates if the object is killed by a chicken.
+   */
 
     speed = 0.15;
     otherDirection = false;
@@ -26,15 +26,11 @@ A movable object that extends DrawableObject.
     progessCoinBar = 0;
     progessBottleBar = 0;
     chickendead = false;
-    
 
 
     /**
     
     Applies gravity to the object and updates its position and speed accordingly.
-    @function
-    @name applyGravity
-    @memberof object
     @returns {void}
     */
 
@@ -50,9 +46,6 @@ A movable object that extends DrawableObject.
     /**
     
     Checks if the object is above the ground.
-    @function
-    @name isAboveGround
-    @memberof object
     @returns {boolean} - Returns true if the object is above the ground, false otherwise.
     @throws {Error} - Throws an error if this is not an instance of ThrowableObject.
     */
@@ -67,9 +60,6 @@ A movable object that extends DrawableObject.
     /**
 
 Checks if the object is colliding with another object.
-@function
-@name isColliding
-@memberof object
 @param {object} mo - The other object to check collision with.
 @returns {boolean} - Returns true if the objects are colliding, false otherwise.
 */
@@ -85,9 +75,6 @@ Checks if the object is colliding with another object.
     /**
     
     Calculates the right border position of the object.
-    @function
-    @name rightBorder
-    @memberof object
     @returns {number} - Returns the x-coordinate of the right border of the object.
     */
 
@@ -99,27 +86,18 @@ Checks if the object is colliding with another object.
     /**
     
     Calculates the left border position of the object.
-    @function
-    @name leftBorder
-    @memberof object
     @returns {number} - Returns the x-coordinate of the left border of the object.
     */
-
 
     leftBorder() {
         return this.x + this.offset.left;
     }
 
-
     /**
     
     Calculates the top border position of the object.
-    @function
-    @name topBorder
-    @memberof object
     @returns {number} - Returns the y-coordinate of the top border of the object.
     */
-
 
     topBorder() {
         return this.y + this.offset.top;
@@ -128,9 +106,6 @@ Checks if the object is colliding with another object.
     /**
     
     Calculates the bottom border position of the object.
-    @function
-    @name bottomBorder
-    @memberof object
     @returns {number} - Returns the y-coordinate of the bottom border of the object.
     */
 
@@ -144,9 +119,6 @@ Checks if the object is colliding with another object.
     /**
     
     Calculates the right border position of the given object.
-    @function
-    @name rightObjectBorder
-    @memberof object
     @param {object} object - The other object to calculate the right border position for.
     @returns {number} - Returns the x-coordinate of the right border of the given object.
     */
@@ -159,9 +131,6 @@ Checks if the object is colliding with another object.
     /**
     
     Calculates the left border position of the given object.
-    @function
-    @name leftObjectBorder
-    @memberof object
     @param {object} object - The other object to calculate the left border position for.
     @returns {number} - Returns the x-coordinate of the left border of the given object.
     */
@@ -181,8 +150,6 @@ Checks if the object is colliding with another object.
     @returns {number} - Returns the y-coordinate of the top border of the given object.
     */
 
-
-
     topObjectBorder(object) {
         return object.y + object.offset.top;
     }
@@ -190,9 +157,6 @@ Checks if the object is colliding with another object.
     /**
     
     Calculates the bottom border position of the given object.
-    @function
-    @name bottomObjectBorder
-    @memberof object
     @param {object} object - The other object to calculate the bottom border position for.
     @returns {number} - Returns the y-coordinate of the bottom border of the given object.
     */
@@ -205,13 +169,10 @@ Checks if the object is colliding with another object.
     /**
     
     Reduces the energy of the object when hit.
-    @function
-    @name hit
-    @memberof object
     @returns {void}
     */
     hit() {
-        this.energy -= 20;
+        this.energy -= 18;
         if (this.energy < 0) {
             this.energy = 0;
             this.isDead();
@@ -223,9 +184,6 @@ Checks if the object is colliding with another object.
     /**
  
  Checks if the object was hit in the last few seconds.
- @function
- @name isHurt
- @memberof object
  @returns {boolean} - Returns true if the object was hit in the last few seconds, false otherwise.
  */
     isHurt() {
@@ -233,16 +191,9 @@ Checks if the object is colliding with another object.
         timepassed = timepassed / 1000;
         return timepassed < 1;
     }
-
-
-
     /**
  
- 
  Checks if the object is dead.
- @function
- @name isDead
- @memberof object
  @returns {boolean} - Returns true if the object's energy is 0 or less, false otherwise.
  */
     isDead() {
@@ -250,14 +201,9 @@ Checks if the object is colliding with another object.
         return this.energy <= 0
 
     }
-
-
     /**
   
   Checks if the end boss is dead.
-  @function
-  @name EndbossIsDead
-  @memberof object
   @returns {boolean} - Returns true if the end boss's energy is 0, false otherwise.
   */
 
@@ -268,9 +214,6 @@ Checks if the object is colliding with another object.
     /**
   
   Kills the object by setting its energy to 0.
-  @function
-  @name kill
-  @memberof object
   @returns {void}
   */
     kill() {
@@ -280,9 +223,6 @@ Checks if the object is colliding with another object.
     /**
     
     Kills the object when killed by a chicken.
-    @function
-    @name chickenKilled
-    @memberof object
     @returns {number} - Returns 0.
     */
     chickenKilled() {
@@ -294,9 +234,6 @@ Checks if the object is colliding with another object.
     /**
   
   Increases the progress bar for coins if it is not already at 100.
-  @function
-  @name raiseProgressbarCoin
-  @memberof object
   @returns {void}
   */
     raiseProgressbarCoin() {
@@ -306,9 +243,6 @@ Checks if the object is colliding with another object.
     /**
  
  Increases the progress bar for bottles if it is not already at 100.
- @function
- @name raiseProgressbarBottle
- @memberof object
  @returns {void}
  */
 
@@ -319,9 +253,6 @@ Checks if the object is colliding with another object.
     /**
  
  Decreases the progress bar for bottles if it is not already at 0.
- @function
- @name decreaseBottle
- @memberof object
  @returns {void}
  */
     decreaseBottle() {
@@ -331,9 +262,6 @@ Checks if the object is colliding with another object.
     /**
   
   Plays an animation with a series of images.
-  @function
-  @name playAnimation
-  @memberof object
   @param {string[]} images - An array of image paths for the animation.
   @returns {void}
   */
@@ -347,9 +275,6 @@ Checks if the object is colliding with another object.
     /**
   
   Moves the object to the right with its current speed.
-  @function
-  @name moveRight
-  @memberof object
   @returns {void}
   */
     moveRight() {
@@ -359,9 +284,6 @@ Checks if the object is colliding with another object.
     /**
   
   Moves the object to the left with its current speed.
-  @function
-  @name moveLeft
-  @memberof object
   @returns {void}
   */
     moveLeft() {
@@ -371,9 +293,6 @@ Checks if the object is colliding with another object.
     /**
   
   Makes the object jump by setting its vertical speed to 18.
-  @function
-  @name jump
-  @memberof object
   @returns {void}
   */
     jump() {

@@ -1,124 +1,108 @@
-
-
 /* Smartphones ----------- */
 @media only screen and (max-width: 720px) {
 
     body {
         display: block;
-       }
-
-    canvas {
-       
     }
 
+    canvas {}
+
     #gameWin {
-        
         width: 100%;
     }
 
     #gameOver {
-        
         height: 100vh;
     }
 
     #startGame {
-        
         width: 100%;
     }
 
     #instructions {
-        
-
+        z-index: 9999;
     }
 }
 
 /* Smartphones ----------- */
 @media only screen and (max-height: 480px) {
 
-  
+    canvas {
+        height: 100vh;
+    }
+
+    #gameWin {
+
+        height: 100vh;
+    }
+
+    #gameOver {
+
+        height: 100vh;
+    }
+
+    #startGame {
+
+        height: 100vh;
+    }
+
+    #instructions {
+
+        height: 100vh;
+        z-index: 9999;
+
+    }
+
+}
+
+@media only screen and (max-width: 896px) and (orientation: landscape) {
+
+    /* Hier kommen die CSS-Regeln für Geräte mit einer maximalen Bildschirmbreite von 768px */
+    html,
+    body {
+        display: block;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+
+    .mobile-buttons {
+        display: block;
+    }
 
     canvas {
         height: 100vh;
     }
 
     #gameWin {
-        
+
         height: 100vh;
     }
 
     #gameOver {
-        
+
         height: 100vh;
     }
 
     #startGame {
-        
+
         height: 100vh;
     }
 
     #instructions {
-        
+
         height: 100vh;
+        z-index: 9999;
+
     }
-
-
-
 }
 
-
-@media only screen and (max-width: 896px) and (orientation: landscape) {
-
-    /* Hier kommen die CSS-Regeln für Geräte mit einer maximalen Bildschirmbreite von 768px */
-    
+@media only screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
     body {
-display: block;
-
-    }
-    
-    .mobile-buttons {
         display: block;
-      }
-      canvas {
-        height: 100vh;
     }
 
-    #gameWin {
-        
-        height: 100vh;
-    }
-
-    #gameOver {
-        
-        height: 100vh;
-    }
-
-    #startGame {
-        
-        height: 100vh;
-    }
-
-    #instructions {
-        
-        height: 100vh;
-    }
-
-
-  }
-
-
-
-
-
-  
-    @media only screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
-    
-        body {
-            display: block;
-           }
-
-    }
-      
-
-    
-
-    
+}

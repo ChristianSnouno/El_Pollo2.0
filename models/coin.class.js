@@ -22,8 +22,8 @@ class Coin extends MovableObject {
     @type {string[]}
     */
     IMAGES = [
-    'img/8.Coin/Moneda1.png',
-    'img/8.Coin/Moneda2.png'
+        'img/8.Coin/Moneda1.png',
+        'img/8.Coin/Moneda2.png'
     ];
     /**
     
@@ -31,10 +31,10 @@ class Coin extends MovableObject {
     @type {{top: number, bottom: number, left: number, right: number}}
     */
     offset = {
-    top: 35,
-    bottom: 35,
-    left: 25,
-    right: 25,
+        top: 35,
+        bottom: 35,
+        left: 25,
+        right: 25,
     };
     /**
     
@@ -43,24 +43,23 @@ class Coin extends MovableObject {
     @param {number} y The y coordinate of the coin object.
     */
     constructor(x, y) {
-    super().loadImage('img/8.Coin/Moneda1.png');
-    this.loadImages(this.IMAGES);
-    this.x = x;
-    this.y = y;
-    this.animate();
+        super().loadImage('img/8.Coin/Moneda1.png');
+        this.loadImages(this.IMAGES);
+        this.x = x;
+        this.y = y;
+        this.animate();
     }
     /**
     
     Animates the coin object by playing its image sequence.
     */
     animate() {
-    setInterval(() => {
-    this.playAnimation(this.IMAGES);
-    }, 200);
+        setInterval(() => {
+            this.playAnimation(this.IMAGES);
+        }, 200);
     }
-    }
-    
-    
-    
-    
-    
+}
+
+
+
+

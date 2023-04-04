@@ -29,20 +29,19 @@ class Cloud extends MovableObject {
     @param {number} height The height of the cloud object.
     */
     constructor(width, height) {
-    super().loadImage('img/5.Fondo/Capas/4.nubes/1.png');
-    this.width = width;
-    this.height = height;
-    this.x = Math.random() * 500; // Number between 0 and 500
-    this.animate();
+        super().loadImage('img/5.Fondo/Capas/4.nubes/1.png');
+        this.width = width;
+        this.height = height;
+        this.x = Math.random() * 500; // Number between 0 and 500
+        this.animate();
     }
     /**
     
     Animates the cloud object by moving it to the left.
     */
     animate() {
-    setInterval(() => { this.moveLeft() }, 1000 / 60);
+        setInterval(() => { this.moveLeft() }, 1000 / 60);
     }
-    }
-    
-    
-    
+}
+
+

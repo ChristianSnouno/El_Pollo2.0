@@ -2,7 +2,7 @@
  * A class that represents an energy bar for the end boss.
  * Inherits from the DrawableObject class.
  */
- class EndbossBar extends DrawableObject {
+class EndbossBar extends DrawableObject {
     percentage = 0;
     IMAGES = [
         'img/7.Marcadores/2_statusbar_endboss/0.png',
